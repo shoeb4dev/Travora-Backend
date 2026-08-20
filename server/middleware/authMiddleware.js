@@ -4,28 +4,32 @@ const protect = (req, res, next) => {
   try {
     const authHeader = req.headers.authorization;
 
-    // Check Authorization header
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
       return res.status(401).json({
         success: false,
-        message: "Not authorized. No token provided.",
+        message: "No authentication token provided",
       });
     }
 
-    // Extract token
     const token = authHeader.split(" ")[1];
 
-    // Verify token
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(
+      token,
+      process.env.JWT_SECRET
+    );
 
-    // Attach user information to request
-    req.user = decoded;
+    req.user = {
+      userId: decoded.userId,
+      role: decoded.role,
+    };
 
     next();
   } catch (error) {
+    console.error("Auth Error:", error);
+
     return res.status(401).json({
       success: false,
-      message: "Not authorized. Invalid or expired token.",
+      message: "Invalid or expired token",
     });
   }
 };
