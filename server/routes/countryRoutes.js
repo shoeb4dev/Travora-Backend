@@ -8,18 +8,19 @@ const {
   deleteCountry,
 } = require("../controllers/countryController");
 
-const protect = require("../middleware/authMiddleware");
+const protect = require("../middleware/authMiddleware")
+const admin = require("../middleware/adminMiddleware");;
 
 const router = express.Router();
 
-router.post("/", protect, createCountry);
+router.post("/", protect, admin, createCountry);
 
 router.get("/", getCountries);
 
 router.get("/:id", getCountryById);
 
-router.put("/:id", protect, updateCountry);
+router.put("/:id", protect,admin, updateCountry);
 
-router.delete("/:id", protect, deleteCountry);
+router.delete("/:id", protect,admin, deleteCountry);
 
 module.exports = router;
