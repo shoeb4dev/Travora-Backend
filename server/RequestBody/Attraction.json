@@ -1,0 +1,19 @@
+{
+  "name": "Charminar",
+  "city": "CITY_ID",
+  "country": "COUNTRY_ID",
+  "description": "Charminar is one of the most famous historical monuments in Hyderabad.",
+  "images": [
+    "https://example.com/charminar-1.jpg",
+    "https://example.com/charminar-2.jpg"
+  ],
+  "category": "historical",
+  "location": {
+    "latitude": 17.3616,
+    "longitude": 78.4747,
+    "address": "Charminar Road, Hyderabad"
+  },
+  "openingHours": "9:30 AM - 5:30 PM",
+  "ticketPrice": "₹25",
+  "rating": 4.5
+}
