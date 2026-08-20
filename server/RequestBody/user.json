@@ -1,0 +1,9 @@
+{
+  "_id": "some-mongodb-id",
+  "name": "Shoeb",
+  "email": "shoeb@example.com",
+  "password": "hashed-password-will-be-here",
+  "role": "user",
+  "createdAt": "2026-08-20T...",
+  "updatedAt": "2026-08-20T..."
+}
